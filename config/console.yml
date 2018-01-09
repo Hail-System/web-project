@@ -1,0 +1,8 @@
+verbose: false
+debug: false
+pid_dir: '%storage_path%'
+
+commands:
+  - Hail\Console\Command\Optimize
+  - Hail\I18n\Console\Gettext
+  - Hail\Database\Console\Migration

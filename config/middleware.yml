@@ -1,0 +1,7 @@
+#Session before ErrorHandler can trace ajax request
+#- Hail\Http\Middleware\Session
+- Hail\Http\Middleware\ErrorHandler
+- Hail\Http\Middleware\ScriptPath
+- Hail\Http\Middleware\I18n
+- Hail\Http\Middleware\Route
+- Hail\Http\Middleware\Handler

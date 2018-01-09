@@ -1,0 +1,132 @@
+# Feature
+config:
+  class|to: Hail\Config
+  arguments: ["${Hail\\Framework::FOLDERS}"]
+
+alias:
+  class|to: Hail\AliasLoader
+  arguments: [CONFIG.alias]
+
+i18n: Hail\I18N\I18N
+
+event:
+  class|to: Hail\Event\EventManager
+  to:
+    - Psr\EventManager\EventManagerInterface
+
+auth: Hail\Auth\Manager
+client: Hail\Client
+
+cache: "@cache.simple"
+
+cache.simple:
+  factory: Hail\Factory\Cache::simple
+  to:
+    - Hail\Cache\Simple\CacheInterface
+    - Psr\SimpleCache\CacheInterface
+
+cache.pool:
+  factory: Hail\Factory\Cache::pool
+  to:
+    - Hail\Cache\CacheItemPoolInterface
+    - Psr\Cache\CacheItemPoolInterface
+
+db: Hail\Factory\Database::pdo
+cdb:
+  factory: Hail\Factory\Database::cache
+  arguments: ["@db", "@cache"]
+  to:
+    - Hail\Database\Cache\CachedDBInterface
+
+router:
+  class|to: Hail\Router
+  arguments: [CONFIG.route]
+
+storage: Hail\Factory\Storage::mount
+
+template:
+  class|to: Hail\Template\Engine
+  arguments: [CONFIG.template]
+
+image:
+  class|to: Hail\Image\ImageManager
+  arguments: [CONFIG.image]
+
+# Tools
+arrays: Hail\Util\Arrays
+crypto: Hail\Util\Crypto
+debugger: Hail\Debugger\Debugger
+logger:
+  factory: Hail\Debugger\Debugger::getLogger
+  to:
+    - Psr\Log\LoggerInterface
+generators: Hail\Util\Generators
+inflector: Hail\Util\Inflector
+json: Hail\Util\Json
+serialize: Hail\Util\Serialize
+strings: Hail\Util\Strings
+validator: Hail\Util\Validator
+
+# Application
+app:
+  class|to: Hail\Application
+  arguments: ["@container"]
+
+request: Hail\Http\Request
+
+response:
+  class|to: Hail\Http\Response
+  arguments: ["@app", "@request"]
+
+service:
+  class: Hail\Util\ObjectFactory
+  arguments: [App\Service, "@container"]
+
+lib:
+  class: Hail\Util\ObjectFactory
+  arguments: [App\Library, "@container"]
+
+model:
+  class: Hail\Util\ObjectFactory
+  arguments: [App\Model, "@container"]
+
+session:
+  class|to: Hail\Session\Session
+  arguments: [CONFIG.cookie, "@request", "@response"]
+  calls:
+    setHandler: [CONFIG.session]
+
+httpServer: "@swoole.httpServer"
+
+# Swoole
+swoole.httpServer:
+  class|to: Hail\Swoole\Http\Server
+  arguments: ["@app"]
+
+# Middleware
+Hail\Http\Middleware\ErrorHandler: []
+Hail\Http\Middleware\MethodOverride: []
+Hail\Http\Middleware\BasePath:
+  arguments: [CONFIG.app.basePath]
+Hail\Http\Middleware\ClientIp:
+  calls:
+    proxy: [CONFIG.env.proxies]
+Hail\Http\Middleware\Cors:
+  arguments: [CONFIG.cors]
+Hail\Http\Middleware\Payload: []
+Hail\Http\Middleware\ScriptPath: []
+Hail\Http\Middleware\TrailingSlash: []
+Hail\Http\Middleware\ContentType: []
+Hail\Http\Middleware\ContentEncoding: []
+Hail\Http\Middleware\ContentLanguage:
+  arguments: [CONFIG.env.languages]
+
+# Hail Framework middleware
+Hail\Http\Middleware\Session:
+  arguments: ["@session"]
+Hail\Http\Middleware\I18n:
+  arguments: ["@container"]
+Hail\Http\Middleware\Route:
+  arguments: ["@router"]
+Hail\Http\Middleware\Handler:
+  arguments: ["@app"]

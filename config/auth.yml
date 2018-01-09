@@ -1,0 +1,23 @@
+namesplace: App\Auth
+
+default:
+  role:
+    name: user
+    id: 0
+  scene:
+    name: scene
+    id: 0
+  permission: deny
+
+roles:
+  user:
+    belongTo: group
+
+  group: []
+
+  manager: []
+
+scenes:
+  scene: []
+
+  game: []

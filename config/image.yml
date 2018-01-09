@@ -1,0 +1,6 @@
+driver: null
+cache:
+  namespace: image_cache
+  drivers:
+    file:
+      directory: '%storage_path: image%'

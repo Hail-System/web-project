@@ -1,0 +1,2 @@
+directory: '%base_path: App, Views%'
+cache: '%storage_path: template%'

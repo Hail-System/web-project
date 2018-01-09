@@ -1,0 +1,37 @@
+{
+  "name": "hail/web",
+  "description": "WEB bootstrap use hail-framework",
+  "type": "project",
+  "keywords": ["hail", "web"],
+  "homepage": "http://framework.flyinghail.com/",
+  "support": {
+    "issues": "https://github.com/hail-team/hail-web/issues",
+    "source": "https://github.com/hail-team/hail-web"
+  },
+  "authors": [
+    {
+      "name": "FlyingHail",
+      "email": "flyinghail@msn.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "license": "MIT",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/Hail-Team/hail-web.git"
+    }
+  ],
+  "require": {
+    "hail/framework": "dev-master"
+  },
+  "suggest": {
+    "ext-apcu": "improve the performance for autoload"
+  },
+  "optimize-autoloader": true,
+  "apcu-autoloader": true
+}

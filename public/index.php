@@ -1,7 +1,6 @@
 <?php
-// Absolute path to the application base folder
-defined('BASE_PATH') || define('BASE_PATH', dirname(__DIR__));
+$basePath = dirname(__DIR__);
+require "$basePath/vendor/autoload.php";
 
-require BASE_PATH . '/vendor/autoload.php';
-
-Hail\Framework::listen();
+Hail\Framework::bootstrap($basePath)
+    ->get('app')->listen();

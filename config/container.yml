@@ -1,7 +1,7 @@
 # Feature
 config:
   class|to: Hail\Config
-  arguments: ["${Hail\\Framework::FOLDERS}"]
+  arguments: ['%base_path%']
 
 alias:
   class|to: Hail\AliasLoader
@@ -12,7 +12,7 @@ i18n: Hail\I18N\I18N
 event:
   class|to: Hail\Event\EventManager
   to:
-    - Psr\EventManager\EventManagerInterface
+    - Hail\Event\Psr\EventManagerInterface
 
 auth: Hail\Auth\Manager
 client: Hail\Client
@@ -71,6 +71,10 @@ validator: Hail\Util\Validator
 app:
   class|to: Hail\Application
   arguments: ["@container"]
+
+console:
+  class|to: Hail\Console\Application
+  arguments: [CONFIG.console]
 
 request: Hail\Http\Request
 

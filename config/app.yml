@@ -1,5 +1,10 @@
 timezone: Asia/Shanghai
 
+proxies: []
+
+languages:
+  - zh-CN
+
 i18n:
   domain: default
   locale:

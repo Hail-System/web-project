@@ -110,7 +110,7 @@ Hail\Http\Middleware\BasePath:
   arguments: [CONFIG.app.basePath]
 Hail\Http\Middleware\ClientIp:
   calls:
-    proxy: [CONFIG.env.proxies]
+    proxy: [CONFIG.app.proxies]
 Hail\Http\Middleware\Cors:
   arguments: [CONFIG.cors]
 Hail\Http\Middleware\Payload: []
@@ -119,7 +119,7 @@ Hail\Http\Middleware\TrailingSlash: []
 Hail\Http\Middleware\ContentType: []
 Hail\Http\Middleware\ContentEncoding: []
 Hail\Http\Middleware\ContentLanguage:
-  arguments: [CONFIG.env.languages]
+  arguments: [CONFIG.app.languages]
 
 # Hail Framework middleware
 Hail\Http\Middleware\Session:

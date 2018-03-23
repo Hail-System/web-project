@@ -1,12 +1,12 @@
 {
-  "name": "hail/web",
+  "name": "hail/web-project",
   "description": "WEB bootstrap use hail-framework",
   "type": "project",
   "keywords": ["hail", "web"],
   "homepage": "http://framework.flyinghail.com/",
   "support": {
-    "issues": "https://github.com/hail-team/hail-web/issues",
-    "source": "https://github.com/hail-team/hail-web"
+    "issues": "https://github.com/hail-team/web-project/issues",
+    "source": "https://github.com/hail-team/web-project"
   },
   "authors": [
     {
@@ -23,7 +23,7 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/Hail-Team/hail-web.git"
+      "url": "https://github.com/Hail-Team/web-project.git"
     }
   ],
   "require": {

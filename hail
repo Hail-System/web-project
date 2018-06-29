@@ -1,0 +1,7 @@
+#!/usr/bin/env php
+<?php
+$basePath = __DIR__;
+require "$basePath/vendor/autoload.php";
+
+Hail\Framework::bootstrap($basePath)
+    ->get('console')->runWithTry($argv);

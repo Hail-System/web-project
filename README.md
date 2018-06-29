@@ -8,3 +8,10 @@ Web example use hail-framework
 ```bash
 composer create-project hail/web-project
 ```
+
+## Usage
+
+### Generate development helper classes
+```bash
+./hail optimize
+```

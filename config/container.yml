@@ -76,7 +76,9 @@ console:
   class|to: Hail\Console\Application
   arguments: [CONFIG.console]
 
-request: Hail\Http\Request
+request:
+  class|to: Hail\Http\Request
+  arguments: ["@app"]
 
 response:
   class|to: Hail\Http\Response

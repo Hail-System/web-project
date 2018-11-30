@@ -1,0 +1,8 @@
+allow_redirects: false
+max_redirects: 5
+timeout: 30
+verify: true
+proxy: null
+
+multi: false # only for MULTI CURL
+curl: [] # arguments for curl_setopt_array()

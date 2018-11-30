@@ -15,7 +15,9 @@ event:
     - Hail\Event\Psr\EventManagerInterface
 
 auth: Hail\Auth\Manager
-client: Hail\Client
+client:
+  class|to: Hail\Http\Browser
+  arguments: [CONFIG.browser]
 
 cache: "@cache.simple"
 

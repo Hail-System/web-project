@@ -15,7 +15,7 @@ event:
     - Hail\Event\Psr\EventManagerInterface
 
 auth: Hail\Auth\Manager
-client:
+browser:
   class|to: Hail\Http\Browser
   arguments: [CONFIG.browser]
 

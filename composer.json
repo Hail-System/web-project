@@ -5,8 +5,8 @@
   "keywords": ["hail", "web"],
   "homepage": "http://framework.flyinghail.com/",
   "support": {
-    "issues": "https://github.com/hail-team/web-project/issues",
-    "source": "https://github.com/hail-team/web-project"
+    "issues": "https://github.com/hail-framework/web-project/issues",
+    "source": "https://github.com/hail-framework/web-project"
   },
   "authors": [
     {
@@ -23,7 +23,7 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/Hail-Team/web-project.git"
+      "url": "https://github.com/hail-framework/web-project.git"
     }
   ],
   "require": {

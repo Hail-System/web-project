@@ -1,13 +1,11 @@
 # Feature
-config:
-  class|to: Hail\Config
-  arguments: ['%base_path%']
+config: Hail\Config
 
 alias:
   class|to: Hail\AliasLoader
   arguments: [CONFIG.alias]
 
-i18n: Hail\I18N\I18N
+i18n: Hail\I18n\I18n
 
 event:
   class|to: Hail\Event\EventManager

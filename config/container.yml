@@ -54,6 +54,7 @@ image:
 
 serializer: Hail\Serialize\Serializer
 json: "@serializer->json"
+yaml: "@serializer->yaml"
 
 # Tools
 arrays: Hail\Util\Arrays

@@ -22,10 +22,10 @@ Storage: Hail\Facade\Storage
 Template: Hail\Facade\Template
 Validator: Hail\Facade\Validator
 Crypto: Hail\Util\Crypto
-Serialize: Hail\Util\Serialize
+Serializer: Hail\Facade\Serializer
 Arrays: Hail\Util\Arrays
 Debugger: Hail\Debugger\Debugger
-Json: Hail\Util\Json
+Json: Hail\Facade\Json
 Strings: Hail\Util\Strings
 Inflector: Hail\Util\Inflector
 Generators: Hail\Util\Generators

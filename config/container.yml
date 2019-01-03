@@ -3,7 +3,7 @@ config: Hail\Config
 
 alias:
   class|to: Hail\AliasLoader
-  arguments: [CONFIG.alias]
+  arguments: ["@config->get:alias"]
 
 i18n: Hail\I18n\I18n
 
@@ -15,7 +15,7 @@ event:
 auth: Hail\Auth\Manager
 browser:
   class|to: Hail\Http\Browser
-  arguments: [CONFIG.browser]
+  arguments: ["@config->get:browser"]
 
 cache: "@cache.simple"
 
@@ -40,17 +40,20 @@ cdb:
 
 router:
   class|to: Hail\Router
-  arguments: [CONFIG.route]
+  arguments: ["@config->get:route"]
 
 storage: Hail\Factory\Storage::mount
 
 template:
   class|to: Hail\Template\Engine
-  arguments: [CONFIG.template]
+  arguments: ["@config->get:template"]
 
 image:
   class|to: Hail\Image\ImageManager
-  arguments: [CONFIG.image]
+  arguments: ["@config->get:image"]
+
+serializer: Hail\Serialize\Serializer
+json: "@serializer->json"
 
 # Tools
 arrays: Hail\Util\Arrays
@@ -62,8 +65,6 @@ logger:
     - Psr\Log\LoggerInterface
 generators: Hail\Util\Generators
 inflector: Hail\Util\Inflector
-json: Hail\Util\Json
-serialize: Hail\Util\Serialize
 strings: Hail\Util\Strings
 validator: Hail\Util\Validator
 
@@ -74,7 +75,7 @@ app:
 
 console:
   class|to: Hail\Console\Application
-  arguments: [CONFIG.console]
+  arguments: ["@config->get:console"]
 
 request:
   class|to: Hail\Http\Request
@@ -98,34 +99,32 @@ model:
 
 session:
   class|to: Hail\Session\Session
-  arguments: [CONFIG.cookie, "@request", "@response"]
+  arguments: ["@config->get:cookie", "@request", "@response"]
   calls:
-    setHandler: [CONFIG.session]
+    setHandler: ["@config->get:session"]
 
-httpServer: "@swoole.httpServer"
+httpServer: "@swoole->http"
 
 # Swoole
-swoole.httpServer:
-  class|to: Hail\Swoole\Http\Server
-  arguments: ["@app"]
+swoole: Hail\Swoole\Server
 
 # Middleware
 Hail\Http\Middleware\ErrorHandler: []
 Hail\Http\Middleware\MethodOverride: []
 Hail\Http\Middleware\BasePath:
-  arguments: [CONFIG.app.basePath]
+  arguments: ["@config->get:app.basePath"]
 Hail\Http\Middleware\ClientIp:
   calls:
-    proxy: [CONFIG.app.proxies]
+    proxy: ["@config->get:app.proxies"]
 Hail\Http\Middleware\Cors:
-  arguments: [CONFIG.cors]
+  arguments: ["@config->get:cors"]
 Hail\Http\Middleware\Payload: []
 Hail\Http\Middleware\ScriptPath: []
 Hail\Http\Middleware\TrailingSlash: []
 Hail\Http\Middleware\ContentType: []
 Hail\Http\Middleware\ContentEncoding: []
 Hail\Http\Middleware\ContentLanguage:
-  arguments: [CONFIG.app.languages]
+  arguments: ["@config->get:app.languages"]
 
 # Hail Framework middleware
 Hail\Http\Middleware\Session:

@@ -27,6 +27,5 @@ Arrays: Hail\Util\Arrays
 Debugger: Hail\Debugger\Debugger
 Json: Hail\Facade\Json
 Yaml: Hail\Facade\Yaml
-Strings: Hail\Util\Strings
-Inflector: Hail\Util\Inflector
+Strings: Hail\Facade\Strings
 Generators: Hail\Util\Generators

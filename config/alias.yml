@@ -28,4 +28,4 @@ Debugger: Hail\Debugger\Debugger
 Json: Hail\Facade\Json
 Yaml: Hail\Facade\Yaml
 Strings: Hail\Facade\Strings
-Generators: Hail\Util\Generators
+Generators: Hail\Facade\Generators

@@ -23,7 +23,7 @@ Template: Hail\Facade\Template
 Validator: Hail\Facade\Validator
 Crypto: Hail\Util\Crypto
 Serializer: Hail\Facade\Serializer
-Arrays: Hail\Util\Arrays
+Arrays: Hail\Facade\Arrays
 Debugger: Hail\Debugger\Debugger
 Json: Hail\Facade\Json
 Yaml: Hail\Facade\Yaml
